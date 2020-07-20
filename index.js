@@ -79,102 +79,99 @@ inquirer
         const gnu = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)"
         const mit = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
 
-        if (JSON.stringify(data.licenseInput) === '["Apache 2.0 License"]') {
-            fs.appendFile(readmeName, "\n\n" + apache, function (error) {
+        fs.writeFile(readmeName, "", function (error) {
+
+            if (JSON.stringify(data.licenseInput) === '["Apache 2.0 License"]') {
+                fs.appendFile(readmeName, "\n\n" + apache, function (error) {
+                    if (error) {
+                        return console.log(error);
+                    }
+                });
+            } else if (JSON.stringify(data.licenseInput) === '["Mozilla Public License 2.0"]') {
+                fs.appendFile(readmeName, "\n\n" + mozilla, function (error) {
+                    if (error) {
+                        return console.log(error);
+                    }
+                });
+            } else if (JSON.stringify(data.licenseInput) === '["BSD 3-Clause License"]') {
+                fs.appendFile(readmeName, "\n\n" + bds, function (error) {
+                    if (error) {
+                        return console.log(error);
+                    }
+                });
+            } else if (JSON.stringify(data.licenseInput) === '["GNU GPL v3"]') {
+                fs.appendFile(readmeName, "\n\n" + gnu, function (error) {
+                    if (error) {
+                        return console.log(error);
+                    }
+                });
+            } else if (JSON.stringify(data.licenseInput) === '["The MIT License"]') {
+                fs.appendFile(readmeName, "\n\n" + mit, function (error) {
+                    if (error) {
+                        return console.log(error);
+                    }
+                });
+            }
+
+            fs.appendFile(readmeName, "\n\n" + "## Title:" + "\n" + JSON.stringify(data.titleInput), function (error) {
                 if (error) {
                     return console.log(error);
                 }
+                console.log("Title successfully added to " + readmeName);
+                fs.appendFile(readmeName, "\n\n" + "## Description:" + "\n\t" + JSON.stringify(data.descriptionInput), function (error) {
+                    if (error) {
+                        return console.log(error);
+                    }
+                    console.log("Description successfully added to " + readmeName);
+                    fs.appendFile(readmeName, "\n\n" + "## Table of Contents:" + "\n\t" + "* Installation" + "\n\t" + "* Usage" + "\n\t" + "* License" + "\n\t" + "* Contributing" + "\n\t" + "* Tests" + "\n\t" + "* Questions", function (error) {
+                        if (error) {
+                            return console.log(error);
+                        }
+                        fs.appendFile(readmeName, "\n\n" + "## Installation:" + "\n\t" + JSON.stringify(data.installationInput), function (error) {
+                            if (error) {
+                                return console.log(error);
+                            }
+                            console.log("Installation Information successfully added to " + readmeName);
+                            fs.appendFile(readmeName, "\n\n" + "## Usage:" + "\n\t" + JSON.stringify(data.usageInput), function (error) {
+                                if (error) {
+                                    return console.log(error);
+                                }
+                                console.log("Usage Information successfully added to " + readmeName);
+                                fs.appendFile(readmeName, "\n\n" + "## Contributors:" + "\n\t" + JSON.stringify(data.contributorInput), function (error) {
+                                    if (error) {
+                                        return console.log(error);
+                                    }
+                                    console.log("Contributor Information successfully added to " + readmeName);
+                                    fs.appendFile(readmeName, "\n\n" + "## Tests:" + "\n\t" + JSON.stringify(data.testInput), function (error) {
+                                        if (error) {
+                                            return console.log(error);
+                                        }
+                                        console.log("Test Information successfully added to " + readmeName);
+                                        fs.appendFile(readmeName, "\n\n" + "## Questions:" + "\n\t" + "If you require further information on this app, you can view my GitHub profile or email me." + "\n\n\t" + "GitHub Unsername: " + JSON.stringify(data.githubInput) + "\n\n\t" + "Email Contact: " + JSON.stringify(data.emailInput), function (error) {
+                                            if (error) {
+                                                return console.log(error);
+                                            }
+                                            console.log("Contact/Questions Information successfully added to " + readmeName);
+                                            fs.appendFile(readmeName, "\n\n" + "## License:" + "\n\t" + JSON.stringify(data.licenseInput), function (error) {
+                                                if (error) {
+                                                    return console.log(error);
+                                                }
+                                                console.log("License Information successfully added to " + readmeName);
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
             });
-        } else if (JSON.stringify(data.licenseInput) === '["Mozilla Public License 2.0"]') {
-            fs.appendFile(readmeName, "\n\n" + mozilla, function (error) {
-                if (error) {
-                    return console.log(error);
-                }
-            });
-        } else if (JSON.stringify(data.licenseInput) === '["BSD 3-Clause License"]') {
-            fs.appendFile(readmeName, "\n\n" + bds, function (error) {
-                if (error) {
-                    return console.log(error);
-                }
-            });
-        } else if (JSON.stringify(data.licenseInput) === '["GNU GPL v3"]') {
-            fs.appendFile(readmeName, "\n\n" + gnu, function (error) {
-                if (error) {
-                    return console.log(error);
-                }
-            });
-        } else if (JSON.stringify(data.licenseInput) === '["The MIT License"]') {
-            fs.appendFile(readmeName, "\n\n" + mit, function (error) {
-                if (error) {
-                    return console.log(error);
-                }
-            });
-        }
 
-        fs.appendFile(readmeName, "\n\n" + "## Title:" + "\n" + JSON.stringify(data.titleInput), function (error) {
-            if (error) {
-                return console.log(error);
-            }
-            console.log("Title successfully added to " + readmeName);
-        });
-
-        fs.appendFile(readmeName, "\n\n" + "## Description:" + "\n\t" + JSON.stringify(data.descriptionInput), function (error) {
-            if (error) {
-                return console.log(error);
-            }
-            console.log("Description successfully added to " + readmeName);
-        });
-
-        fs.appendFile(readmeName, "\n\n" + "## Table of Contents:" + "\n\t" + "* Installation" + "\n\t" + "* Usage" + "\n\t" + "* License" + "\n\t" + "* Contributing" + "\n\t" + "* Tests" + "\n\t" + "* Questions", function (error) {
             if (error) {
                 return console.log(error);
             }
         });
-
-        fs.appendFile(readmeName, "\n\n" + "## Installation:" + "\n\t" + JSON.stringify(data.installationInput), function (error) {
-            if (error) {
-                return console.log(error);
-            }
-            console.log("Installation Information successfully added to " + readmeName);
-        });
-
-        fs.appendFile(readmeName, "\n\n" + "## Usage:" + "\n\t" + JSON.stringify(data.usageInput), function (error) {
-            if (error) {
-                return console.log(error);
-            }
-            console.log("Usage Information successfully added to " + readmeName);
-        });
-
-        fs.appendFile(readmeName, "\n\n" + "## Contributors:" + "\n\t" + JSON.stringify(data.contributorInput), function (error) {
-            if (error) {
-                return console.log(error);
-            }
-            console.log("Contributor Information successfully added to " + readmeName);
-        });
-
-        fs.appendFile(readmeName, "\n\n" + "## Tests:" + "\n\t" + JSON.stringify(data.testInput), function (error) {
-            if (error) {
-                return console.log(error);
-            }
-            console.log("Test Information successfully added to " + readmeName);
-        });
-
-        fs.appendFile(readmeName, "\n\n" + "## Questions:" + "\n\t" + "If you require further information on this app, you can view my GitHub profile or email me." + "\n\n\t" + "GitHub Unsername: " + JSON.stringify(data.githubInput) + "\n\n\t" + "Email Contact: " + JSON.stringify(data.emailInput), function (error) {
-            if (error) {
-                return console.log(error);
-            }
-            console.log("Contact/Questions Information successfully added to " + readmeName);
-        });
-
-        fs.appendFile(readmeName, "\n\n" + "## License:" + "\n\t" + JSON.stringify(data.licenseInput), function (error) {
-            if (error) {
-                return console.log(error);
-            }
-            console.log("License Information successfully added to " + readmeName);
-        });
-
     })
-
     .catch(function (error) {
         if (error) {
             return console.log(error);
