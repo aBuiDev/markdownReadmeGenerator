@@ -6,6 +6,18 @@ console.log("\nWelcome to aBuiDev's CLI README Generator v0.0.1 2020\n");
 inquirer
     .prompt([
         {
+            type: "checkbox",
+            message: "\nLICENSE:\nChoose from one of the licenses below:",
+            choices: [
+                "Apache 2.0 License",
+                "Mozilla Public License 2.0",
+                "BSD 3-Clause License",
+                "GNU GPL v3",
+                "The MIT License"
+            ],
+            name: "licenseInput"
+        },
+        {
             type: "input",
             message: "TITLE:\nWhat is the title of your project?",
             name: "titleInput",
@@ -17,8 +29,13 @@ inquirer
         },
         {
             type: "input",
-            message: "\nINSTALLATION:\nOutline an installation procedure.\nOtherwise, leave empty if none and press ENTER",
+            message: "\nINSTALLATION:\nOutline an installation procedure.",
             name: "installationInput"
+        },
+        {
+            type: "input",
+            message: "\nCONTRIBUTORS:\nName other contributors.",
+            name: "contributorInput"
         },
         {
             type: "checkbox",
@@ -33,39 +50,22 @@ inquirer
         },
         {
             type: "checkbox",
-            message: "\nLICENSE:\nChoose from one of the licenses below:",
-            choices: [
-                "Apache 2.0 License",
-                "Mozilla Public License 2.0",
-                "BSD 3-Clause License",
-                "GNU GPL v3",
-                "The MIT License"
-            ],
-            name: "licenseInput"
-        },
-        {
-            type: "input",
-            message: "\nCONTRIBUTORS:\nName other contributors.\nOtherwise, leave empty if none and press ENTER",
-            name: "contributorInput"
-        },
-        {
-            type: "checkbox",
             message: "\nTESTS:\nSelect CLI to handle your program's tests.",
             choices: [
-                {
-                    name: "npm run test",
-                    checked: true
-                },
-                {
-                    name: "None",
-                },
+                "npm run test",
+                "None"
             ],
             name: "testInput"
         },
         {
             type: "input",
-            message: "\nQUESTIONS:\nOutline an installation procedure.\nOtherwise, leave empty if none and press ENTER",
-            name: "installationInput"
+            message: "\nGitHub:\nInput your GitHub username.",
+            name: "githubInput"
+        },
+        {
+            type: "input",
+            message: "\nEMAIL:\nType in your email here.",
+            name: "emailInput"
         },
 
     ])
@@ -73,40 +73,62 @@ inquirer
 
         console.log(data);
         const readmeName = data.titleInput.toLowerCase() + ".md";
-        fs.writeFile(readmeName, "Title:" + "\n" + JSON.stringify(data.titleInput), function (error) {
+        fs.writeFile(readmeName, "## Title:" + "\n" + JSON.stringify(data.titleInput), function (error) {
             if (error) {
                 return console.log(error);
             }
             console.log("Title successfully added to " + readmeName);
 
-            fs.appendFile(readmeName, "\n\n" + "Description:" + "\n" + JSON.stringify(data.descriptionInput), function (error) {
+            fs.appendFile(readmeName, "\n\n" + "## Description:" + "\n" + JSON.stringify(data.descriptionInput), function (error) {
                 if (error) {
                     return console.log(error);
                 }
                 console.log("Description successfully added to " + readmeName);
             });
 
-            fs.appendFile(readmeName, "\n\n" + "Table of Contents:" + "\n" + "1. Installation" + "\n" + "2. Usage" + "\n" + "3. License" + "\n" + "4. Contributing" + "\n" + "5. Tests" + "\n" + "6. Questions", function (error) {
+            fs.appendFile(readmeName, "\n\n" + "## Table of Contents:" + "\n" + "1. Installation" + "\n" + "2. Usage" + "\n" + "3. License" + "\n" + "4. Contributing" + "\n" + "5. Tests" + "\n" + "6. Questions", function (error) {
                 if (error) {
                     return console.log(error);
                 }
             });
 
-            fs.appendFile(readmeName, "\n\n" + "Installation:" + "\n" + JSON.stringify(data.installationInput), function (error) {
+            fs.appendFile(readmeName, "\n\n" + "## Installation:" + "\n" + JSON.stringify(data.installationInput), function (error) {
                 if (error) {
                     return console.log(error);
                 }
                 console.log("Installation Information successfully added to " + readmeName);
             });
 
-            fs.appendFile(readmeName, "\n\n" + "Usage:" + "\n" + JSON.stringify(data.usageInput), function (error) {
+            fs.appendFile(readmeName, "\n\n" + "## Usage:" + "\n" + JSON.stringify(data.usageInput), function (error) {
                 if (error) {
                     return console.log(error);
                 }
                 console.log("Usage Information successfully added to " + readmeName);
             });
 
-            fs.appendFile(readmeName, "\n\n" + "License:" + "\n" + JSON.stringify(data.licenseInput), function (error) {
+            fs.appendFile(readmeName, "\n\n" + "## Contributors:" + "\n" + JSON.stringify(data.contributorInput), function (error) {
+                if (error) {
+                    return console.log(error);
+                }
+                console.log("Contributor Information successfully added to " + readmeName);
+                console.log(JSON.stringify(data.contributorInput));
+            });
+
+            fs.appendFile(readmeName, "\n\n" + "## Tests:" + "\n" + JSON.stringify(data.testInput), function (error) {
+                if (error) {
+                    return console.log(error);
+                }
+                console.log("Test Information successfully added to " + readmeName);
+            });
+
+            fs.appendFile(readmeName, "\n\n" + "## Questions:" + "\n" + "If you require further information on this app, you can view my GitHub profile or email me." + "\n" + "GitHub Unsername: " + JSON.stringify(data.githubInput) + "\n" + "Email Contact: " + JSON.stringify(data.emailInput), function (error) {
+                if (error) {
+                    return console.log(error);
+                }
+                console.log("Contact/Questions Information successfully added to " + readmeName);
+            });
+
+            fs.appendFile(readmeName, "\n\n" + "## License:" + "\n" + JSON.stringify(data.licenseInput), function (error) {
 
                 const apache = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
                 const mozilla = "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)"
@@ -150,26 +172,9 @@ inquirer
                     return console.log(error);
                 }
                 console.log("License Information successfully added to " + readmeName);
-                console.log(JSON.stringify(data.licenseInput));
-            });
-
-            fs.appendFile(readmeName, "\n\n" + "Usage:" + "\n" + JSON.stringify(data.contributorInput), function (error) {
-                if (error) {
-                    return console.log(error);
-                }
-                console.log("Contributor Information successfully added to " + readmeName);
-            });
-
-            fs.appendFile(readmeName, "\n\n" + "Usage:" + "\n" + JSON.stringify(data.contributorInput), function (error) {
-                if (error) {
-                    return console.log(error);
-                }
-                console.log("Contributor Information successfully added to " + readmeName);
             });
 
         });
-
-
 
     })
     .catch(function (error) {
