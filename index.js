@@ -71,54 +71,56 @@ inquirer
     ])
     .then(function (data) {
 
-        console.log(data);
+        // Filename Generator
         const readmeName = data.titleInput.toLowerCase() + ".md";
+
+        // License Badges
         const apache = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
         const mozilla = "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)"
         const bds = "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)"
         const gnu = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)"
         const mit = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
 
-        fs.writeFile(readmeName, "", function (error) {
+        fs.writeFile(readmeName, "", (error) => {
 
             if (JSON.stringify(data.licenseInput) === '["Apache 2.0 License"]') {
-                fs.appendFile(readmeName, "\n\n" + apache, function (error) {
+                fs.appendFile(readmeName, "\n\n" + apache, (error) => {
                     if (error) {
                         return console.log(error);
                     }
                 });
             } else if (JSON.stringify(data.licenseInput) === '["Mozilla Public License 2.0"]') {
-                fs.appendFile(readmeName, "\n\n" + mozilla, function (error) {
+                fs.appendFile(readmeName, "\n\n" + mozilla, (error) => {
                     if (error) {
                         return console.log(error);
                     }
                 });
             } else if (JSON.stringify(data.licenseInput) === '["BSD 3-Clause License"]') {
-                fs.appendFile(readmeName, "\n\n" + bds, function (error) {
+                fs.appendFile(readmeName, "\n\n" + bds, (error) => {
                     if (error) {
                         return console.log(error);
                     }
                 });
             } else if (JSON.stringify(data.licenseInput) === '["GNU GPL v3"]') {
-                fs.appendFile(readmeName, "\n\n" + gnu, function (error) {
+                fs.appendFile(readmeName, "\n\n" + gnu, (error) => {
                     if (error) {
                         return console.log(error);
                     }
                 });
             } else if (JSON.stringify(data.licenseInput) === '["The MIT License"]') {
-                fs.appendFile(readmeName, "\n\n" + mit, function (error) {
+                fs.appendFile(readmeName, "\n\n" + mit, (error) => {
                     if (error) {
                         return console.log(error);
                     }
                 });
             }
 
-            fs.appendFile(readmeName, "\n\n" + "## Title:" + "\n" + JSON.stringify(data.titleInput), function (error) {
+            fs.appendFile(readmeName, "\n\n" + "## Title:" + "\n\t" + JSON.stringify(data.titleInput), (error) => {
                 if (error) {
                     return console.log(error);
                 }
                 console.log("Title successfully added to " + readmeName);
-                fs.appendFile(readmeName, "\n\n" + "## Description:" + "\n\t" + JSON.stringify(data.descriptionInput), function (error) {
+                fs.appendFile(readmeName, "\n\n" + "## Description:" + "\n\t" + JSON.stringify(data.descriptionInput), (error) => {
                     if (error) {
                         return console.log(error);
                     }
@@ -127,22 +129,22 @@ inquirer
                         if (error) {
                             return console.log(error);
                         }
-                        fs.appendFile(readmeName, "\n\n" + "## Installation:" + "\n\t" + JSON.stringify(data.installationInput), function (error) {
+                        fs.appendFile(readmeName, "\n\n" + "## Installation:" + "\n\t" + JSON.stringify(data.installationInput), (error) => {
                             if (error) {
                                 return console.log(error);
                             }
                             console.log("Installation Information successfully added to " + readmeName);
-                            fs.appendFile(readmeName, "\n\n" + "## Usage:" + "\n\t" + JSON.stringify(data.usageInput), function (error) {
+                            fs.appendFile(readmeName, "\n\n" + "## Usage:" + "\n\t" + JSON.stringify(data.usageInput), (error) => {
                                 if (error) {
                                     return console.log(error);
                                 }
                                 console.log("Usage Information successfully added to " + readmeName);
-                                fs.appendFile(readmeName, "\n\n" + "## Contributors:" + "\n\t" + JSON.stringify(data.contributorInput), function (error) {
+                                fs.appendFile(readmeName, "\n\n" + "## Contributors:" + "\n\t" + JSON.stringify(data.contributorInput), (error) => {
                                     if (error) {
                                         return console.log(error);
                                     }
                                     console.log("Contributor Information successfully added to " + readmeName);
-                                    fs.appendFile(readmeName, "\n\n" + "## Tests:" + "\n\t" + JSON.stringify(data.testInput), function (error) {
+                                    fs.appendFile(readmeName, "\n\n" + "## Tests:" + "\n\t" + JSON.stringify(data.testInput), (error) => {
                                         if (error) {
                                             return console.log(error);
                                         }
@@ -152,7 +154,7 @@ inquirer
                                                 return console.log(error);
                                             }
                                             console.log("Contact/Questions Information successfully added to " + readmeName);
-                                            fs.appendFile(readmeName, "\n\n" + "## License:" + "\n\t" + JSON.stringify(data.licenseInput), function (error) {
+                                            fs.appendFile(readmeName, "\n\n" + "## License:" + "\n\t" + JSON.stringify(data.licenseInput), (error) => {
                                                 if (error) {
                                                     return console.log(error);
                                                 }
