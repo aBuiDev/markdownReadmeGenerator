@@ -69,7 +69,7 @@ inquirer
         },
 
     ])
-    .then(function (data) {
+    .then((data) => {
 
         // Filename Generator
         const readmeName = data.titleInput.toLowerCase() + ".md";
@@ -125,7 +125,7 @@ inquirer
                         return console.log(error);
                     }
                     console.log("Description successfully added to " + readmeName);
-                    fs.appendFile(readmeName, "\n\n" + "## Table of Contents:" + "\n\t" + "* Installation" + "\n\t" + "* Usage" + "\n\t" + "* License" + "\n\t" + "* Contributing" + "\n\t" + "* Tests" + "\n\t" + "* Questions", function (error) {
+                    fs.appendFile(readmeName, "\n\n" + "## Table of Contents:" + "\n\t" + "* Installation" + "\n\t" + "* Usage" + "\n\t" + "* Contributors" + "\n\t" + "* Tests" + "\n\t" + "* Questions" + "\n\t" + "* License", function (error) {
                         if (error) {
                             return console.log(error);
                         }
