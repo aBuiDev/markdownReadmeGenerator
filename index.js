@@ -75,57 +75,55 @@ inquirer
 
 // License Compiler
 const licenseCompiler = (response) => {
-    let licenseSelect;
-    switch(response.licence) {
+    let licenseSelect = response.license;
+    switch(licenseSelect) {
         case "Apache 2.0 License":
             licenseSelect = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
-            break;
+            return licenseSelect
         case "Boost Software License 1.0":
             licenseSelect = "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)";
-            break;
+            return licenseSelect
         case "BSD 3-Clause License":
             licenseSelect = "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)";
-            break;
+            return licenseSelect
         case "Attribution 4.0 International":
             licenseSelect = "[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)";
-            break;
+            return licenseSelect
         case "Eclipse Public License 1.0":
             licenseSelect = "[![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)](https://opensource.org/licenses/EPL-1.0)";
-            break;
+            return licenseSelect
         case "GNU GPL v3":
             licenseSelect = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
-            break;
+            return licenseSelect
         case "IBM Public License Version 1.0":
             licenseSelect = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
-            break;
+            return licenseSelect
         case "ISC License (ISC)":
             licenseSelect = "[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)";
-            break;
+            return licenseSelect
         case "The MIT License":
             licenseSelect = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
-            break;
+            return licenseSelect
         case "Mozilla Public License 2.0":
             licenseSelect = "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)";
-            break;
+            return licenseSelect
         case "Attribution License (BY)":
             licenseSelect = "[![License: Open Data Commons Attribution](https://img.shields.io/badge/License-ODC_BY-brightgreen.svg)](https://opendatacommons.org/licenses/by/)";
-            break;
+            return licenseSelect
         case "The Perl License":
             licenseSelect = "[![License: Artistic-2.0](https://img.shields.io/badge/License-Perl-0298c3.svg)](https://opensource.org/licenses/Artistic-2.0)";
-            break;
+            return licenseSelect
         case "SIL Open Font License 1.1":
             licenseSelect = "[![License: Open Font-1.1](https://img.shields.io/badge/License-OFL%201.1-lightgreen.svg)](https://opensource.org/licenses/OFL-1.1)";
-            break;
+            return licenseSelect
         case "The Unlicense":
             licenseSelect = "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)";
-            break;
+            return licenseSelect
         case "The Do What the Fuck You Want to Public License":
             licenseSelect = "[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)";
-            break;
-        default:
-            licenseSelect = "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+            return licenseSelect
     }
-    return licenseSelect;
+    
 }
 
 
