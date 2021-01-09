@@ -1,13 +1,3 @@
-// * Title
-// * Description
-// * Table of Contents
-// * Installation
-// * Usage
-// * License
-// * Contributing
-// * Tests
-// * Questions
-
 const inquirer = require('inquirer');
 const fs = require('fs');
 
@@ -27,6 +17,11 @@ inquirer
             type: "input",
             message: "Project Installation Process:",
             name: "installation"
+        },
+        {
+            type: "input",
+            message: "Project Usage:",
+            name: "usage"
         },
         {
             type: "input",
@@ -182,7 +177,7 @@ ${response.usage}
 <br>
 
 ## Contributing
-${response.contributing}
+${response.contributors}
 
 #
 
@@ -203,6 +198,12 @@ ${response.tests}
 If you have any questions about this project, please contact me via LinkedIn [here](https://www.linkedin.com/in/andrew-bui-9929202a/). You can access my portfolio [here](https://abuidev.netlify.app/).
 
 #
+
+<br>
+<br>
+<br>
+
+This project was developed by [aBuiDev](https://github.com/aBuiDev) | 2021
         `;
 
     return renderElements;
