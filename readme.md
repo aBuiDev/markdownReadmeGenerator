@@ -5,8 +5,8 @@
 
 <br>
 
-* **[Description](Description:)**
-* **[Installation](Installation:)**
+* **[Description](Description)**
+* **[Installation](Installation)**
 * **[Usage](Usage)**
 * **[Contributing](Contributing)**
 * **[Tests](Tests)**
