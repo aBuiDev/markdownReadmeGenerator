@@ -1,7 +1,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# AS
+# Markdown Readme Generator
 
 <br>
 
@@ -17,7 +17,7 @@
 <br>
 
 ## Description:
-AS
+A terminal based application that allows users to input a title, description, contributor information, project usage, select a license to generate a markdown readme.md that is formatted for deployment as a readme for any project repo. The application was build using JavaScript, Node.js and NPM Inquirer.
 
 #
 
@@ -26,7 +26,7 @@ AS
 <br>
 
 ## Installation:
-AS
+npm install is required to initialise application
 
 #
 
@@ -35,7 +35,7 @@ AS
 <br>
 
 ## Usage
-AS
+Can be used and shared freely
 
 #
 
@@ -44,7 +44,7 @@ AS
 <br>
 
 ## Contributing
-AS
+aBuiDev
 
 #
 
@@ -53,7 +53,7 @@ AS
 <br>
 
 ## Tests
-AS
+none
 
 #
 
